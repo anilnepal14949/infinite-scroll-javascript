@@ -8,10 +8,11 @@ let photosArray = [];
 let isInitialLoad = true;
 
 // Unsplash API
-const initialCount = 5;
+const initialCount = 15;
+const imageCategory = 'Electronics';
 
 const API_KEY = 'jSLokxVyURUEn03vnaJZcCylwgZyjEUFOBG1eE0zvMc';
-let apiURL = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=${initialCount}`;
+let apiURL = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&query=${imageCategory}&count=${initialCount}`;
 
 // update api url after initial load
 function updateAPIURLWithNewCount(picCount) {
@@ -24,6 +25,8 @@ function imageLoaded() {
     if(imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
+    } else {
+        loader.hidden = false;
     }
 }
 
